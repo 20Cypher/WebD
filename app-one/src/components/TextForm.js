@@ -12,12 +12,14 @@ export default function TextForm(props) {
     // console.log("Upper Case button clicked")
     const newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted to UpperCase", "success");
   };
 
   const handleLower = (e) => {
     // console.log("Lower Case but`ton clicked")
     const newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted to LowerCase", "success");
   };
 
   const speak = () => {
@@ -32,6 +34,7 @@ export default function TextForm(props) {
         window.speechSynthesis.cancel();
       }
     }
+    props.showAlert("Spoken", "success");
   };
 
   const downloadTxtFile = () => {
@@ -42,6 +45,7 @@ export default function TextForm(props) {
     element.href = URL.createObjectURL(file);
     element.download = "myFile.txt";
     element.click();
+    props.showAlert("Downloaded file", "success");
   };
 
   return (
