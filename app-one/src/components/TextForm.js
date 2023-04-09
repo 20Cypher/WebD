@@ -68,23 +68,23 @@ export default function TextForm(props) {
             }}
           ></textarea>
         </div>
-        <button className="btn btn-primary" onClick={handleUpper}>
+        <button className="btn btn-primary mx-2 my-1" onClick={handleUpper}>
           {" "}
           Convert to UpperCase{" "}
         </button>
-        <button className="btn btn-primary mx-5" onClick={handleLower}>
+        <button className="btn btn-primary mx-2 my-1" onClick={handleLower}>
           {" "}
           Convert to LowerCase{" "}
         </button>
         <button
           type="submit"
           onClick={speak}
-          className="btn btn-warning"
+          className="btn btn-warning mx-2 my-1"
           id="toggle"
         >
           Speak
         </button>
-        <button className="btn btn-danger mx-5" onClick={downloadTxtFile}>
+        <button className="btn btn-danger mx-2 my-1" onClick={downloadTxtFile}>
           Download Text
         </button>
       </div>
@@ -94,7 +94,12 @@ export default function TextForm(props) {
       >
         <h2>Your Text Summary: </h2>
         <p>
-          {text.split(" ").length} words and {text.length} characters
+          {
+            text.split(" ").filter((e) => {
+              return e.length !== 0;
+            }).length
+          }{" "}
+          words and {text.length} characters
         </p>
       </div>
     </>
