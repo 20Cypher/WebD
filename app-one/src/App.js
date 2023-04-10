@@ -4,7 +4,7 @@ import TextForm from "./components/TextForm";
 import About from "./components/About";
 import Alert from "./components/Alert";
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Link, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
 
@@ -55,12 +55,13 @@ function App() {
         <Alert alert={alert} />
         <div className="container my-3">
           <Routes>
-            <Route path="/about" element={<About/>} />
+            <Route path="/about" element={<About mode={mode}/>} />
             <Route path="/" element={<TextForm
                 showAlert={showAlert}
-                heading="Enter text to analyse"
                 mode={mode}
-              />} />
+                heading="Enter text to analyse"
+              />}
+              mode = {mode} />
           </Routes>
         </div>
       </Router>

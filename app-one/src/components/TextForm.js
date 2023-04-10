@@ -63,16 +63,24 @@ export default function TextForm(props) {
             value={text}
             onChange={handleOnChange}
             style={{
-              backgroundColor: props.mode === "dark" ? "grey" : "white",
+              backgroundColor: props.mode === "dark" ? "#13466e" : "white",
               color: props.mode === "dark" ? "white" : "#042743",
             }}
           ></textarea>
         </div>
-        <button className="btn btn-primary mx-2 my-1" onClick={handleUpper}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-2 my-1"
+          onClick={handleUpper}
+        >
           {" "}
           Convert to UpperCase{" "}
         </button>
-        <button className="btn btn-primary mx-2 my-1" onClick={handleLower}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-2 my-1"
+          onClick={handleLower}
+        >
           {" "}
           Convert to LowerCase{" "}
         </button>
@@ -81,10 +89,15 @@ export default function TextForm(props) {
           onClick={speak}
           className="btn btn-warning mx-2 my-1"
           id="toggle"
+          disabled={text.length === 0}
         >
           Speak
         </button>
-        <button className="btn btn-danger mx-2 my-1" onClick={downloadTxtFile}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-danger mx-2 my-1"
+          onClick={downloadTxtFile}
+        >
           Download Text
         </button>
       </div>
