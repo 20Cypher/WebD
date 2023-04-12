@@ -108,6 +108,14 @@ export class News extends Component {
     };
   }
 
+  async componentDidMount() {
+    let url =
+      "https://newsapi.org/v2/top-headlines?country=in&apiKey=783068a340484681b296b8353d4669cb";
+    let data = await fetch(url);
+    let parsedData = await data.json();
+    this.setState({ articles: parsedData.articles });
+  }
+
   render() {
     return (
       <div className="container my-3">
@@ -117,9 +125,13 @@ export class News extends Component {
             return (
               <div className="col-md-4" key={e.url}>
                 <NewsItem
-                  title={e.title.slice(0, 45)}
-                  desc={e.description.slice(0, 88)}
-                  imgurl={e.urlToImage}
+                  title={e.title ? e.title.slice(0, 45) : ""}
+                  desc={e.description ? e.description.slice(0, 88) : ""}
+                  imgurl={
+                    !e.urlToImage
+                      ? "https://thumbs.dreamstime.com/b/news-newspapers-folded-stacked-word-wooden-block-puzzle-dice-concept-newspaper-media-press-release-42301371.jpg"
+                      : e.urlToImage
+                  }
                   newsurl={e.url}
                 />
               </div>
