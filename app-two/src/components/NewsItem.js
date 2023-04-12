@@ -12,8 +12,9 @@ export class NewsItem extends Component {
             <p className="card-text">{desc}</p>
             <a
               href={newsurl}
+              rel="noreferrer"
               target="_blank"
-              className="btn btn-sm btn-primary"
+              className="btn btn-sm btn-warning"
             >
               Read More
             </a>
